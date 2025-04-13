@@ -199,21 +199,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc2bbdf1">Code from slides</a>
+<li><a href="#orgbf8b623">Code from slides</a>
 <ul>
-<li><a href="#org7a63039">Unconstrained (original code) (C+11)</a></li>
-<li><a href="#orgd6eec9b">SFINAE (C++17)</a></li>
-<li><a href="#org258299b">concepts (C++20)</a></li>
-<li><a href="#org28cbb15">Concept syntax</a></li>
-<li><a href="#org1914c5a">Minimal example of problem encountered when templatifying</a></li>
+<li><a href="#org365c677">Unconstrained (original code) (C+11)</a></li>
+<li><a href="#org15134b5">SFINAE (C++17)</a></li>
+<li><a href="#orgeecf824">concepts (C++20)</a></li>
+<li><a href="#org3ae8931">Concept syntax</a></li>
+<li><a href="#orge45cfa0">Minimal example of problem encountered when templatifying</a></li>
 </ul>
 </li>
-<li><a href="#orgb7a4852">Similar, more minimal pattern</a>
+<li><a href="#org3ed9e54">Similar, more minimal pattern</a>
 <ul>
-<li><a href="#org9d979ce">Smart Pointer instead of raw pointer?</a>
+<li><a href="#org9e9dd70">Smart Pointer instead of raw pointer?</a>
 <ul>
-<li><a href="#orgeb3bc11">Smart pointer is ~owning, so we need to create a copy</a></li>
-<li><a href="#org91d983b">std::unique<sub>ptr</sub>&lt;void&gt; does not work out of the box</a></li>
+<li><a href="#orgd4df10f">Smart pointer is ~owning, so we need to create a copy</a></li>
+<li><a href="#orgb981ca9">std::unique<sub>ptr</sub>&lt;void&gt; does not work out of the box</a></li>
 </ul>
 </li>
 </ul>
@@ -228,13 +228,13 @@
 <p>
 "Polymorphism should be implementation detail", see also
 </p>
-<div id="outline-container-orgc2bbdf1" class="outline-2">
-<h2 id="orgc2bbdf1">Code from slides</h2>
-<div class="outline-text-2" id="text-orgc2bbdf1">
+<div id="outline-container-orgbf8b623" class="outline-2">
+<h2 id="orgbf8b623">Code from slides</h2>
+<div class="outline-text-2" id="text-orgbf8b623">
 </div>
-<div id="outline-container-org7a63039" class="outline-3">
-<h3 id="org7a63039">Unconstrained (original code) (C+11)</h3>
-<div class="outline-text-3" id="text-org7a63039">
+<div id="outline-container-org365c677" class="outline-3">
+<h3 id="org365c677">Unconstrained (original code) (C+11)</h3>
+<div class="outline-text-3" id="text-org365c677">
 <p>
 <a href="https://godbolt.org/z/76Wh5eo17">https://godbolt.org/z/76Wh5eo17</a>
 </p>
@@ -393,9 +393,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgd6eec9b" class="outline-3">
-<h3 id="orgd6eec9b">SFINAE (C++17)</h3>
-<div class="outline-text-3" id="text-orgd6eec9b">
+<div id="outline-container-org15134b5" class="outline-3">
+<h3 id="org15134b5">SFINAE (C++17)</h3>
+<div class="outline-text-3" id="text-org15134b5">
 <p>
 <a href="https://godbolt.org/z/KjEjsW535">https://godbolt.org/z/KjEjsW535</a>
 </p>
@@ -442,9 +442,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org258299b" class="outline-3">
-<h3 id="org258299b">concepts (C++20)</h3>
-<div class="outline-text-3" id="text-org258299b">
+<div id="outline-container-orgeecf824" class="outline-3">
+<h3 id="orgeecf824">concepts (C++20)</h3>
+<div class="outline-text-3" id="text-orgeecf824">
 <p>
 'fixed' version: <a href="https://godbolt.org/z/oYaj7o1zq">https://godbolt.org/z/oYaj7o1zq</a>
 </p>
@@ -479,9 +479,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org28cbb15" class="outline-3">
-<h3 id="org28cbb15">Concept syntax</h3>
-<div class="outline-text-3" id="text-org28cbb15">
+<div id="outline-container-org3ae8931" class="outline-3">
+<h3 id="org3ae8931">Concept syntax</h3>
+<div class="outline-text-3" id="text-org3ae8931">
 <p>
 Note these are equivalent
 </p>
@@ -498,9 +498,9 @@ Note these are equivalent
 </div>
 </div>
 </div>
-<div id="outline-container-org1914c5a" class="outline-3">
-<h3 id="org1914c5a">Minimal example of problem encountered when templatifying</h3>
-<div class="outline-text-3" id="text-org1914c5a">
+<div id="outline-container-orge45cfa0" class="outline-3">
+<h3 id="orge45cfa0">Minimal example of problem encountered when templatifying</h3>
+<div class="outline-text-3" id="text-orge45cfa0">
 <p>
 <a href="https://godbolt.org/z/Y4v4P6qxE">https://godbolt.org/z/Y4v4P6qxE</a>
 ('problem' is ADL, see <a href="https://stackoverflow.com/a/78399475/24743046">https://stackoverflow.com/a/78399475/24743046</a>)
@@ -508,9 +508,9 @@ Note these are equivalent
 </div>
 </div>
 </div>
-<div id="outline-container-orgb7a4852" class="outline-2">
-<h2 id="orgb7a4852">Similar, more minimal pattern</h2>
-<div class="outline-text-2" id="text-orgb7a4852">
+<div id="outline-container-org3ed9e54" class="outline-2">
+<h2 id="org3ed9e54">Similar, more minimal pattern</h2>
+<div class="outline-text-2" id="text-org3ed9e54">
 <p>
 From <a href="https://www.youtube.com/watch?v=iMzEUdacznQ">https://www.youtube.com/watch?v=iMzEUdacznQ</a>, <a href="https://compiler-explorer.com/z/vrr5jebcM">https://compiler-explorer.com/z/vrr5jebcM</a>
 </p>
@@ -551,16 +551,16 @@ From <a href="https://www.youtube.com/watch?v=iMzEUdacznQ">https://www.youtube.c
 </pre>
 </div>
 </div>
-<div id="outline-container-org9d979ce" class="outline-3">
-<h3 id="org9d979ce">Smart Pointer instead of raw pointer?</h3>
-<div class="outline-text-3" id="text-org9d979ce">
+<div id="outline-container-org9e9dd70" class="outline-3">
+<h3 id="org9e9dd70">Smart Pointer instead of raw pointer?</h3>
+<div class="outline-text-3" id="text-org9e9dd70">
 </div>
-<div id="outline-container-orgeb3bc11" class="outline-4">
-<h4 id="orgeb3bc11">Smart pointer is ~owning, so we need to create a copy</h4>
+<div id="outline-container-orgd4df10f" class="outline-4">
+<h4 id="orgd4df10f">Smart pointer is ~owning, so we need to create a copy</h4>
 </div>
-<div id="outline-container-org91d983b" class="outline-4">
-<h4 id="org91d983b">std::unique<sub>ptr</sub>&lt;void&gt; does not work out of the box</h4>
-<div class="outline-text-4" id="text-org91d983b">
+<div id="outline-container-orgb981ca9" class="outline-4">
+<h4 id="orgb981ca9">std::unique<sub>ptr</sub>&lt;void&gt; does not work out of the box</h4>
+<div class="outline-text-4" id="text-orgb981ca9">
 <p>
 Interesting: <a href="https://stackoverflow.com/questions/39288891/why-is-shared-ptrvoid-legal-while-unique-ptrvoid-is-ill-formed">https://stackoverflow.com/questions/39288891/why-is-shared-ptrvoid-legal-while-unique-ptrvoid-is-ill-formed</a>
 </p>
