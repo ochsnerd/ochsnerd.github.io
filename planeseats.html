@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Some of my Thoughts</title>
+<title>The Airplane Seating Problem</title>
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -192,21 +192,88 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Some of my Thoughts</h1>
-<div id="outline-container-orgfaba609" class="outline-2">
-<h2 id="orgfaba609"><a href="planeseats.html">Planeseats</a></h2>
-</div>
+<h1 class="title">The Airplane Seating Problem</h1>
+<p>
+In an airplane with \(N\) seats, each seat is assigned to a person. Boarding happens as
+follows: The first person sits in a random seat. Every subsequent person sits
+in their assigned seat if its free, otherwise they pick a random seat to sit in.
+What is the probabilty of the last person finding their assign seat unoccupied?
+</p>
 
-<div id="outline-container-org17d6f47" class="outline-2">
-<h2 id="org17d6f47"><a href="why.html">Why</a></h2>
-</div>
+<p>
+The first thing to notice is that when the first person happens to pick their
+assigned seat, everyone else can just sit in their assigned seat.
+</p>
 
-<div id="outline-container-orgc8d1418" class="outline-2">
-<h2 id="orgc8d1418"><a href="how.html">How</a></h2>
-</div>
+<p>
+The second thing to notice is the recursive structure of the boarding procedure:
+If a person sits in a seat which is not theirs, the person whose seat they stole will be
+in a very similar situation again &#x2013; they could sit in the seat of the first person, in which
+case everyone else can just sit in their assigned seat. Or they could choose to sit in the seat
+of the last person, in which case its game over. Any other choice leads to the same situation later.
+</p>
+
+<p>
+To summarize, every time a random choice is made, there are two special seats: one that
+guarantees that the last person can sit in their assigned seat, and one that guarantees that
+thats not the case. All other choices (seats) delegate the decision to the affected person.
+Since there's no difference between the two special seats from the point of view of the
+random sitter, we must conclude that both outcomes are equally likely.
+</p>
+
+<p>
+More explicitly:
+Let \(p(n)\) be the chance that the last passenger finds their seat unoccupied in
+a plane with \(n\) passengers.
+We can express \(p(n)\) by distinguishing the three previously described cases
+</p>
+
+\begin{equation}
+p(n) = \frac{1}{n} \cdot 1 + \frac{n-2}{n} p(n-1) + \frac{1}{n} \cdot 0.
+\end{equation}
+
+<p>
+Its straightforward that \(p(2) = \frac{1}{2}\).
+</p>
+
+<p>
+By induction, it follows that \(p(N) = \frac{1}{2}\) for all \(N \geq 2\) &#x2013; but we already knew that from the symmetry.
+</p>
 </div>
 <div id="postamble" class="status">
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</p>
